@@ -1,0 +1,44 @@
+<% layout('/layouts/boilerplate') %>
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-4">
+            <div class="card" style="width: 18rem;">
+
+                <img src="<%= student.image.path ?student.image.path:'https://images.unsplash.com/photo-1604147706283-d7119b5b822c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80' %>"
+                    class="card-img-top" alt="..." width="300" height="300">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= student.name %>
+                    </h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Roll Number : <%= student.rollNo %>
+                    </li>
+                    <li class="list-group-item">Father Name : <%= student.fName %>
+                    </li>
+                    <li class="list-group-item">Date of birth : <%= student.dob ?student.dob.toDateString():""%>
+                    </li>
+                    <li class="list-group-item">Phone Number :<%= student.phoneNo%>
+                    </li>
+                </ul>
+                <div class="card-body pd-0">
+                    <div class="row my-0 pd-0">
+                        <div class="col-md-3 m-0">
+                            <a class="btn btn-primary my-2" href="/students/<%= student._id%>/edit"
+                                class="card-link">Edit</a>
+                        </div>
+                        <div class="col-md-9">
+                            <form action="/students/<%= student._id %>/results" method="post" class="validated-form"
+                                novalidate>
+                                <div class="mb-3 d-flex m-0">
+                                    <label class="form-labl " for="semNo">Sem No</label>
+                                    <input id="semNo" type="number" class="form-control mx-2 my-2" name="semNo" min="1"
+                                        max="8">
+                                    <button class="btn btn-success mx-2 my-2">Result</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

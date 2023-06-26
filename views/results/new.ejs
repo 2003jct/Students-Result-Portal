@@ -1,0 +1,42 @@
+<% layout('/layouts/boilerplate') %>
+    <div class="row mt-4">
+        <h1 class="text-center">
+            <%= heading %> Result
+        </h1>
+        <div class="col-md-6 offset-md-3">
+            <form action="<%= url %>" method="post" class="validated-form" novalidate>
+                <div class="mb-3">
+                    <label class="form-label" for="rollNo">Roll Number</label>
+                    <input id="rollNo" type="text" class="form-control" name="rollNo" required>
+                </div>
+                <div class="row">
+                    <div class="col-<%= heading==='Delete '?'12':'6' %>">
+                        Subject Code
+                    </div>
+                    <% if(heading!=='Delete ' ){ %>
+                        <div class="col-6">
+                            Grade
+                        </div>
+                        <% } %>
+                </div>
+                <% for(let i=0;i<8;i++){ %>
+                    <div class="row">
+                        <div class="mb-3 col-<%= heading==='Delete '?'12':'6' %>">
+                            <input type="text" class="form-control" name="subCode[<%= i %>]">
+                        </div>
+                        <% if(heading!=='Delete ' ){ %>
+                            <div class="mb-3 col-6">
+                                <input type="number" class="form-control" name="grade[<%= i %>]" min="1" max="10">
+                            </div>
+                            <% } %>
+
+                    </div>
+                    <% } %>
+
+                        <div class="mb-3">
+                            <button class="btn btn-warning">Submit</button>
+                        </div>
+
+            </form>
+        </div>
+    </div>

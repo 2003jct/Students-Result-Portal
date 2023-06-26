@@ -1,0 +1,49 @@
+<% layout('/layouts/boilerplate') %>
+    <h1>All Subjects</h1>
+    <% if(currentUser && currentUser.isAdmin){ %>
+        <div>
+            <a href="/subjects/new">New Subject</a>
+        </div>
+        <% } %>
+            <div class="d-flex flex-wrap">
+                <% for(let subject of subjects) {%>
+                    <div class="col-3 mx-5 my-3 ">
+                        <div class="card mb-3">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card-body ">
+                                        <h6 class="card-title">
+                                            <%=subject.subName%>
+                                        </h6>
+                                        <p class="card-text">
+                                            <small class="text-muted">
+                                                <%=subject.subCode%>
+                                            </small>
+                                        </p>
+                                        <p class="card-text row ">
+                                            <small class="col-6">
+                                                Credits : <%=subject.credits%></small>
+                                            <small class="col-6">semNo : <%= subject.semNo %></small>
+
+                                        </p>
+                                        <% if(currentUser && currentUser.isAdmin) {%>
+
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <a href="/subjects/<%= subject._id %>/edit"
+                                                        class="btn btn-primary">Edit</a>
+                                                </div>
+                                                <form action="/subjects/<%= subject._id %>?_method=DELETE" method="post"
+                                                    class="col-6">
+                                                    <button class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                            <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } %>
+            </div>

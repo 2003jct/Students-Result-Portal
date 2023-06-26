@@ -1,0 +1,36 @@
+<% layout('/layouts/boilerplate') %>
+    <div class="row mt-4">
+        <h1 class="text-center">Student Registration</h1>
+        <div class="col-md-6 offset-md-3">
+            <form action="/students" method="post" class="validated-form" novalidate enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name</label>
+                    <input id="name" type="text" class="form-control" name="student[name]" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="rollNo">Roll Number:</label>
+                    <input id="rollNo" type="text" class="form-control" name="student[rollNo]" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="file">upload Image</label>
+                    <input id="file" type="file" class="form-control" name="image">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="fName">Father Name</label>
+                    <input id="fName" type="text" class="form-control" name="student[fName]">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="phoneNo">Phone Number:</label>
+                    <input id="phoneNo" type="tel" class="form-control" name="student[phoneNo]">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="dob">Date Of Birth</label>
+                    <input id="dob" type="date" class="form-control" name="student[dob]">
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-warning">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>

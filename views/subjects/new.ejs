@@ -1,0 +1,28 @@
+<% layout('/layouts/boilerplate') %>
+    <div class="row mt-4">
+        <h1 class="text-center">Add a subject</h1>
+        <div class="col-md-6 offset-md-3">
+            <form action="/subjects" method="post" class="validated-form" novalidate>
+                <div class="mb-3">
+                    <label class="form-label" for="subName">Subject Name</label>
+                    <input id="subName" type="text" class="form-control" name="subject[subName]" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="subCode">Subject Code:</label>
+                    <input id="subCode" type="text" class="form-control" name="subject[subCode]" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="credits">Credits</label>
+                    <input id="credits" type="number" class="form-control" name="subject[credits]" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="semNo">Semester No:</label>
+                    <input id="semNo" type="number" class="form-control" name="subject[semNo]" min="1" max="8" required>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-warning">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>

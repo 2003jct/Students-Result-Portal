@@ -1,0 +1,41 @@
+<% layout('/layouts/boilerplate') %>
+    <h1>All Students </h1>
+    <a class="btn btn-primary" href="/students/register">New Student</a>
+    <div class="row">
+        <% for(let student of students) {%>
+            <div class="col-md-3 mx-1 flex-wrap">
+                <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <% if(student.image){ %>
+                                <img crossorigin="anonymous" class="img-fluid" alt="" src="<%= student.image %>">
+
+                                <% }else{ %>
+                                    <img src="" alt="" class="img-fluid">
+
+                                    <% } %>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%=student.name%>
+                                </h5>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        <%=student.rollNo%>
+
+                                    </small>
+                                </p>
+                                <a href="/students/<%= student._id %>" class="btn btn-primary">View </a>
+                                <form action="/students/<%= student.id %>?_method=DELETE" method="post"
+                                    class="d-inline">
+                                    <button class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+    </div>

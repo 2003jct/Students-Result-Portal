@@ -1,0 +1,56 @@
+<% layout('/layouts/boilerplate') %>
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-4">
+            <div class="card" style="width: 35rem;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= student.name %>
+                    </h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-6">Roll Number : <%= student.rollNo %>
+                            </div>
+                            <div class="col-6">Semester Number :<%= semNo %>
+                            </div>
+                        </div>
+                </ul>
+                <div class="card-body">
+                    <div class="row border border-success">
+                        <div class="col-4 border border-success">
+                            Subject Code
+                        </div>
+                        <div class="col-4 border border-success">
+                            Subject Name
+                        </div>
+                        <div class="col-4 border border-success">
+                            Grade
+                        </div>
+                    </div>
+
+                    <% for(let result of student.results) {%>
+                        <div class="row border border-success">
+                            <div class="col-4 border border-success">
+                                <%= result.subject.subCode %>
+                            </div>
+                            <div class="col-4 border border-success">
+                                <%= result.subject.subName %>
+                            </div>
+                            <div class="col-4 border border-success">
+                                <%= result.grade %>
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">SGPA : <%= sgpa %>
+                        </div>
+                        <div class="col-6">CGPA :<%= cgpa %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
